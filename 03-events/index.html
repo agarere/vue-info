@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events</title>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <h3>İsim Giriniz(Enter):</h3>
+    <input type="text" @keyup.enter="showAlert" />
+    <hr>
+    <h3>İsim Giriniz(Enter, Space):</h3>
+    <input type="text" @keyup.enter.space="showAlert" />
+    <hr>
+    <h3>Girilen Değer: {{name}}</h3>
+  </div>
+  <script>
+    const { createApp } = Vue
+
+    createApp({
+      
+      data () {
+        return {
+          name: ''
+        }
+      },
+
+      methods: {
+        showAlert (event) {
+          alert(event.target.value)
+          this.name = event.target.value
+        }
+      }
+
+    }).mount('#app')
+  </script>
+</body>
+
+</html>

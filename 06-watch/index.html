@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Watch</title>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+  <div id="app">    
+    <button @click="increase">Arttır</button>
+    <button @click="decrease">Azalt</button>
+    <button @click="increaseCounter2">2.Counter Arttır</button>
+    <h3>{{ counter }}</h3>
+    <h3>{{ resultFunc() }} | {{ result }}</h3>
+  </div>
+  <script>
+    const { createApp } = Vue
+
+    createApp({
+      
+      data () {
+        return {
+          counter: 0,
+          counter2: 0
+        }
+      },
+
+      computed: {
+        result () {
+          console.log('Computed Çalıştırıldı')
+          return this.counter > 10 ? "10'dan büyüktür" : "10'dan küçüktür"
+        }
+      },
+
+      watch: {
+        counter2 (value) {
+          console.log('watch counter2:', value)
+          setTimeout(() => {
+            this.counter = 0
+          }, 2000)
+        }
+      },
+
+      methods: {
+        increase () {
+          this.counter++
+        },
+
+        decrease () {
+          this.counter--
+        },
+
+        resultFunc () {
+          console.log('Method Çalıştırıldı')
+          return this.counter > 10 ? "10'dan büyüktür" : "10'dan küçüktür"
+        },
+
+        increaseCounter2 () {
+          this.counter2++
+        }
+      }
+
+    }).mount('#app')
+  </script>
+</body>
+
+</html>
