@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Class Extend</title>
+  <title>Inline Style</title>
 
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
@@ -20,8 +20,14 @@
     .yellow {
       background-color: yellow;
     }
-    .radius {
-      border-radius: 8px;
+    .red {
+      background-color: red;
+    }
+    .green {
+      background-color: green;
+    }
+    .blue {
+      background-color: blue;
     }
   </style>
 </head>
@@ -30,29 +36,22 @@
   <div id="app">
     <div
       class="box"
-      :class="{
-        yellow: box1IsYellow,
-        radius: isRadius 
-      }"
-      @click="box1IsYellow = !box1IsYellow"
+      :style="{ backgroundColor: color }"
     >
     </div> 
     <div
       class="box"
-      :class="{
-        yellow: box2IsYellow,
-        radius: isRadius
-      }"
-      @click="box2IsYellow = !box2IsYellow"
+      :style="customStyle"
     >
     </div>
     <div
       class="box"
-      :class="divClass"
-      @click="box1IsYellow = !box1IsYellow"
+      :style="[customStyle, { width: yukseklik + 'px' }]"
     >
     </div> 
-    <button @click="isRadius = !isRadius">Radius</button>
+    <hr>
+    <input type="text" v-model="color">
+    <input type="text" v-model="yukseklik">
   </div>
   <script>
     const { createApp } = Vue
@@ -61,17 +60,16 @@
       
       data () {
         return {
-          box1IsYellow: false,
-          box2IsYellow: false,
-          isRadius: false
+          color: 'yellow',
+          yukseklik: 100
         }
       },
 
       computed: {
-        divClass () {
+        customStyle () {
           return {
-            yellow: this.box1IsYellow,
-            radius: this.isRadius 
+            backgroundColor: this.color,
+            height: this.yukseklik + 'px'
           }
         }
       }

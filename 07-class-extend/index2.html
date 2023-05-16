@@ -20,6 +20,12 @@
     .yellow {
       background-color: yellow;
     }
+    .red {
+      background-color: red;
+    }
+    .green {
+      background-color: green;
+    }
     .radius {
       border-radius: 8px;
     }
@@ -39,20 +45,17 @@
     </div> 
     <div
       class="box"
-      :class="{
-        yellow: box2IsYellow,
-        radius: isRadius
-      }"
-      @click="box2IsYellow = !box2IsYellow"
+      :class="color"
     >
     </div>
     <div
       class="box"
-      :class="divClass"
-      @click="box1IsYellow = !box1IsYellow"
+      :class="[color, { yellow: box1IsYellow }]"
     >
-    </div> 
+    </div>
     <button @click="isRadius = !isRadius">Radius</button>
+    <hr>
+    <input type="text" v-model="color">
   </div>
   <script>
     const { createApp } = Vue
@@ -63,7 +66,8 @@
         return {
           box1IsYellow: false,
           box2IsYellow: false,
-          isRadius: false
+          isRadius: false,
+          color: 'yellow'
         }
       },
 
