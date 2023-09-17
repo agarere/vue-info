@@ -3,8 +3,12 @@
     <AppHeader />
     <hr>
     <div class="row">
-      <ServerList />
-      <ServerDetails />
+      <ServerList
+        @click-server="clickServer"
+      />
+      <ServerDetails
+        :selectedServer="selectedServer"
+      />
     </div>
     <hr>
     <AppFooter />
@@ -23,6 +27,20 @@ export default {
     AppFooter,
     ServerList,
     ServerDetails
+  },
+
+  data () {
+    return {
+      selectedServer: 0
+    }
+  },
+
+  methods: {
+    clickServer (serverNo) {
+      if (serverNo) {
+        this.selectedServer = serverNo
+      }
+    }
   }
 }
 </script>

@@ -1,13 +1,24 @@
 <template>
   <div class="col-xs-12 col-sm-4">
-    <ul class="list-group">
-      <li
-        class="list-group-item"
+    <div class="list-group">
+      <button
+        class="list-group-item list-group-item-action"
         v-for="index in 5"
         :key="index"
+        @click="clickServer(index)"
       >
         Sunucu #{{ index }}
-      </li>
-    </ul>
+      </button>
+    </div>
   </div>
 </template>
+
+<script>
+export default {
+  methods: {
+    clickServer (serverNo) {
+      this.$emit('click-server', serverNo)
+    }
+  }
+}
+</script>
