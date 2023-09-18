@@ -9,3 +9,14 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  activated () {
+    console.log("Cart is activated")
+  },
+  deactivated () {
+    console.log("Cart is deactivated")
+  }
+}
+</script>

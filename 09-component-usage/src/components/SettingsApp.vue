@@ -9,3 +9,14 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  activated () {
+    console.log("Settings is activated")
+  },
+  deactivated () {
+    console.log("Settings is deactivated")
+  }
+}
+</script>
