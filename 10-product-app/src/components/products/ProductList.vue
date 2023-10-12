@@ -41,6 +41,7 @@ export default {
   methods: {
     clickItem () {
       alert('Clicked Item')
+      //
     }
   }
 }
