@@ -4,7 +4,8 @@
     <div class="container">
       <div class="card p-4 mt-4 mx-auto" style="width: 36rem;">
         <!-- <ProductPurchase /> -->
-        <ProductList />
+        <!-- <ProductList /> -->
+        <router-view></router-view>
       </div>
     </div>
     <!-- <AppFooter /> -->
@@ -15,7 +16,7 @@
 import AppHeader from './components/shared/AppHeader'
 // import AppFooter from './components/shared/AppFooter'
 // import ProductPurchase from './components/products/ProductPurchase'
-import ProductList from './components/products/ProductList'
+// import ProductList from './components/products/ProductList'
 
 export default {
   name: 'App',
@@ -24,7 +25,7 @@ export default {
     AppHeader,
     // AppFooter,
     // ProductPurchase,
-    ProductList
+    // ProductList
   }
 }
 </script>
