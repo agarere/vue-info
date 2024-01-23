@@ -1,9 +1,13 @@
+/* eslint-disable */
 const state = {
   counter: 0
 }
 
 const getters = {
-  counter: state => state.counter
+  counter: state => state.counter,
+  stringCounter: (state) => {
+    return state.counter + ' kez tıklandı'
+  }
 }
 
 const mutations = {

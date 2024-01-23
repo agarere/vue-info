@@ -45,3 +45,18 @@
   line-height: normal;
   text-align: center;
 }
+.info-container {
+  display: inline-flex;
+  padding: 16px;
+  align-items: flex-start;
+  gap: 12px;
+  border-radius: 6px;
+  border: 1px solid var(--colors-cyan-cyan-300, #6EDFF6);
+  background: #CFF4FC;
+  color: var(--Cyan-800, var(--colors-cyan-cyan-800, #055160));
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  text-align: center;
+}
